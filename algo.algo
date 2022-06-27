@@ -1,0 +1,53 @@
+ALGORITHM algorithm_checkpt
+VAR
+   tab1:ARRAY_OF INTEGER[a];
+   tab2:ARRAY_OF INTEGER[b];
+   i:INTEGER;
+   j,sum:INTEGER;
+
+   sum:INTEGER:=0;
+BEGIN
+  FOR i FROM 0 TO a-1 STEP 1 DO
+    IF (tab1[i]<>tab2[j]) THEN
+        sum:=sum+tab1[i]
+    END_IF
+  END_FOR
+   FOR j FROM 0 TO b-1 STEP 1 DO
+    IF (tab2[j]<>tab1[i]) THEN
+        sum:=sum+tab2[j]
+    END_IF
+  END_FOR
+  read (sum)
+
+END
+//soltuion 2:
+ ALGORITHM algo2
+ VAR
+   tab1:ARRAY_OF INTEGER[a];
+   tab2:ARRAY_OF INTEGER[b];
+   htab:HASH_TABLE<INTEGER,INTEGER>;
+   count:INTEGER:=1;
+   i,J,a,b,el:INTEGER;
+   sum:INTEGER:=0;
+  count:INTEGER;
+BEGIN
+  for i FROM 0 to a-1 step 1 DO
+       read(tab1[i])
+  END_FOR
+  for j FROM 0 to b-1 step 1 DO
+       read(tab2[J])
+  END_FOR
+  for i FROM 0 to a-1 step 1 DO
+    IF (tab1[i]<>tab2[j]) THEN
+      count:= htab.insert(el,tab1[i]) 
+       sum:=sum+(count+1)  
+    END_IF
+    END_FOR
+  for j FROM 0 to b-1 step 1 DO
+    IF (tab2[j]<>tab1[i]) THEN
+       count:=htab.insert(el,tab[J])
+       sum:=sum+(count+1)
+    END_IF
+    END_FOR
+ Read (sum)
+END
